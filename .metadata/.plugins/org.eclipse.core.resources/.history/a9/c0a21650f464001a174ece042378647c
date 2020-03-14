@@ -1,0 +1,13 @@
+package jUnit;
+
+import org.junit.experimental.categories.Categories;
+import org.junit.runner.RunWith;
+
+@RunWith(Categories.class)
+@Categories.IncludeCategory(RegressionTests.class)
+
+@Suite.SuiteClasses({Funtest.class,MyTest2.class})
+
+public class TestSuites {
+
+}

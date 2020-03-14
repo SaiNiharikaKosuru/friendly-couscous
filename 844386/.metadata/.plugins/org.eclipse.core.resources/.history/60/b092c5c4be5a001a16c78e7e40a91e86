@@ -1,0 +1,10 @@
+package springJdbc;
+
+import java.util.List;
+
+public interface IDAO {
+	public List<Student> getStudents() ;
+	
+	public List<Student> searchStudents();
+
+}

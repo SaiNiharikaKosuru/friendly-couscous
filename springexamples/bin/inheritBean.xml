@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans  
+    xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+               http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
+               
+   <bean id="add" class="inheritance.Address">
+    <property name="dno">
+   <value>101KA</value></property>
+   <property name="street">
+   <value>colony</value></property>
+   <property name="city">
+   <value>hyderabad</value></property>
+    </bean>
+    
+    
+    
+    <bean id="setperson" parent="add">
+   <property name="id">
+   <value>101</value></property>
+   <property name="name">
+   <value>aki</value></property>
+   <property name="address" ref="add"/>
+   </bean>
+   
+   </beans>

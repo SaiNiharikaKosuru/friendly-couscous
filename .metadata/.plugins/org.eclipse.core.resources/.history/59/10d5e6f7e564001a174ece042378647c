@@ -1,0 +1,11 @@
+package jUnit;
+
+public class HelloWorld {
+	public String msg1(){
+		return "message1";
+	}
+	public String msg2() {
+		return "message 2 ";
+	}
+
+}

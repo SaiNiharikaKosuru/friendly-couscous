@@ -1,0 +1,16 @@
+package jUnit;
+
+import org.junit.runner.RunWith;
+
+@RunWith(Suite.class)
+
+@Suite.SuiteClasses({
+	
+	JunitTestClass.class,
+	Test2.class
+
+})
+
+public class JUnitTestSuite {
+
+}

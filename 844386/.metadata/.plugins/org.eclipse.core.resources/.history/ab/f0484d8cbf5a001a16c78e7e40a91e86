@@ -1,0 +1,23 @@
+package springJdbc;
+
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("studentApplicationcontext.xml");
+		StudentDAO sdao=(StudentDAO)ctx.getBean("dao");
+		List<Student>list=sdao.getStudents();
+		System.out.println("id      "+"   name       "+" age           ");
+		for(Student ele:list)
+			System.out.println(ele.getId()+"    "+ele.getName()+"        "+ele.getAge());
+	}
+
+}
+
+
+

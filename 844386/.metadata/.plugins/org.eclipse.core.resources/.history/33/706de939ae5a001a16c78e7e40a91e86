@@ -1,0 +1,6 @@
+package springJdbc;
+
+public interface IDAO {
+	public List<Student> getStudents() ;
+
+}

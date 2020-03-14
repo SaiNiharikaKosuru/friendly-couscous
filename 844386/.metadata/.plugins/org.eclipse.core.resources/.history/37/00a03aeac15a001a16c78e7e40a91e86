@@ -1,0 +1,45 @@
+package springJdbc;
+
+import java.util.List;
+import java.util.Scanner;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ApplicationContext ctx=new ClassPathXmlApplicationContext("studentApplicationcontext.xml");
+		StudentDAO sdao=(StudentDAO)ctx.getBean("dao");
+		List<Student>list=sdao.getStudents();
+		System.out.println("id      "+"   name       "+" age           ");
+		for(Student ele:list)
+			System.out.println(ele.getId()+"    "+ele.getName()+"        "+ele.getAge());
+	
+	
+	
+	// insert record if it is not exists in the table
+	Scanner sc=new Scanner(System.in);
+	
+	System.out.println("enter id");
+	int id=sc.nextInt();
+	System.out.println("enter name:");
+	String name=sc.next();
+	System.out.println("enter age:");
+	int age=sc.nextInt();
+	st.setId(id);
+	st.setName(name);
+	st.setAge(age);
+	int res=dao.addRecord(st);
+	if(res==0) {
+	System.out.println("record alredy exist with this id");
+	}
+	else
+	System.out.println("record inserted...");
+
+}
+}
+
+
+
