@@ -1,0 +1,615 @@
+OOPS:
+	features:
+			class-it is a collection of similar objects(an abstract entity consisting of variables &methods)
+			object-instance of a class
+			encapsulation(date hiding&data binding)-the process of combining methods & variables in a class.we can achieve data security
+1.data binding
+2.data hiding
+			inheritance
+			polymorphism
+
+
+class:
+	 [access specifier]-provides level of security for dataclass <class_name>-proper noun
+	{
+		//data variables;
+		//methods;
+	}
+
+In class there are three types of variables:
+1.static-common memory space to all objects
+2.non static/instance-class level objects.individual space
+3.methods-declared inside methods
+	
+1.public-data&method can be accessed outside the class
+2.private-data&method cannot be accessed outside the class
+3.protected-can be accessed in the class and in inherited classes.
+4.default-it can accessed within the package
+
+constructor():
+	bulding blocks of objects
+when constructor is gven private,it becomes a singleton constructor.objects cannot be created.
+
+
+object:
+	<classtype> <objectname>=new <classtype>();
+get()-will return the data from the objects
+public return_Type getXXXX(){
+return var;
+}
+set()-will set the data to the objects
+public return_Type getXXXX(datatype variable){
+this.variable=variable;
+}
+three things will take place while creating object:(class.forName)-->creating object-second way
+1.loading the .class file-secondary memory to primary memory
+2.instantiation-allocating the memory spaces
+3.initialization-values to be initialized
+
+-->individual spaces in memory are allocated only to variables but not to methods.
+-->by default the numeric values with 0 and characaters with null if there are no values.
+
+this():
+it cannot be recursive
+it should in first line of statement
+it cannot be loop
+
+polymorphism:
+the ability of an element to exist in more than one form
+
+Runtime polymorphism:Dynamic binding(function overriding)
+
+Compiletime Polymorphism:static binding(function overloading)
+if the form to be selected is identified at the time of compilation ,it is called compile time polymorphism
+At execution time-runtime polymorphism
+function overload:when two or more methods have same method name and differ in no.of parameters,type of parameters,order of parameters.
+
+function overloading does not depend on return type
+1.number
+2.type
+3.order
+
+Autoboxing:
+the process of converting complex values to simple values
+
+Inheritance:
+The process of acquiring properties from one class to other class.
+Relations:
+1.Is-a-->The code of one class will be used in the another class
+-->re-write the exisiting functionalities
+-->extensibility
+2.Has-a-->If the object of one class is created in another class
+3.Uses-->If the object of one class is passed a parameter to another class method.
+
+Overriding:
+It is theprocess of supressing the base class method in the derived class when both are having the same signature.
+
+Super:
+It is a keyword used to refer the immediate parent data.
+
+annotation ensures that the method we write is compulsory overided by base class or not.it informs the compiler(@override)
+
+
+final:
+is an access modifier,which can be applied on 3 levels
+1.variable-->the variable value cannot be changed,the values becomes constant.
+2.method-->the method cannot be overridden
+3.class-->the class cannot be inherited
+
+
+Abstract class:
+It is a class which consists of abstract method.
+they are required to implement some methods with different functionalities.
+abstract method:
+It doesn't have body.
+Eg:
+shopping
+1.selection
+
+2.payment-can be done any method at every location.its our choice.so no specific functionality.rule cannot be insisted.so  if we write abstract class:
+1.code optimization
+2.it insists the child class to mandatorily implement this method(because to write  body and also to create object other class has to be inherited from parent class).
+
+3.shipment of goods
+
+Interfaces:
+1.Interfaces are java elements which consists of all abstract methods.
+2.Interfaces have full control on business logic
+3.Interfaces are more useful for inheritances.
+4.Interfaces define a rule or templates.
+
+-->All methods are abstract and public.
+-->constructors cannot be written in interfaces but can be done in abstract classes.
+-->Instance variables cannot be declared in interfaces,but can declare constants.
+In abstract class,we can declare variables as well as constants
+
+-->when applying final:
+variable-value doesnt change
+class-properties cant be inherited
+method:it cant be overriden.
+
+
+-->default():
+-->static()-you cannot call on child classes.you can only call on interfaces not on objects.
+
+Lambda expressions:
+these aee anonymous functions without specifier,without return type and without method name
+
+()->{
+	System.out..println("Hello from sample");
+}
+A block can be eliminated if there is only one statement.
+
+-->public int addition(int a,int b)
+{
+return a+b;
+}---------->(a,b)->a+b;It takes two parameters and returns sum of two numbers.(return keyword cant be removed)
+
+
+-->public int addition(int a,int b)
+{
+System.out.println("Hello from sample");
+return a+b;
+}===>(a,b)->{
+System.out.println("Hello from sample");
+return a+b;
+}
+
+==>These are used for functional interfaces.
+==>Functional interfaces are interfaces which consists of only one abstract method.
+
+Thread:
+It can be created by
+1.Thread class
+2.Runnable Interface
+
+Thread t=new Thread();
+t.start();//thread will be started
+
+interface Runnable{
+			public void run();
+}
+
+class MyThread implements Runnable{
+		public void run(){
+			//code
+		}
+}
+MyThread t1=new MyThread();
+Thread myt=new Thread(t1);
+myt.start();
+
+Method Referencing:The way of referencing existing class function to a functional interface
+------------------
+1.static
+2.object
+3.constructor
+
+Exception Handling:
+exceptions are run time errors.
+It is handling errors at run time.We have to handle the errors at run time.
+To make the program execution continue even if errors occur.
+
+Throwable:
+				Throwable
+    Error(H/W failure)					Exception(S/W failure)
+								-->Instantiation Exception
+
+								-->Initialization Exception
+								-->IO Exception
+								-->ClassNotFoundException
+								-->InterruptedException
+								-->Runtime Exception
+										-->ArithmeticException
+										-->IndexOutOfBoundException
+											-->ArrayIndexOutOfBoundException
+											-->StringIndexOutOfBoundException
+
+
+
+MultiThread:
+METHODS IN THREAD CLASS:
+------------------------
+public void run(){}
+
+public static void start();
+
+public int getPriority();
+
+public void setPriority(int priority);
+t1.setPriority(6);
+t2.setPriority(8);
+t1.start();
+t2.start():
+
+public String getName();
+	S.O.P(t1.getName());Thread-0,Thread-1,....
+
+public voud setName(string Name)
+	t1.setName("My Parent thread");
+
+
+public boolean isAlive();  //true if thread is alive else false
+
+public void isInterrupted(); 	//this is used to test whether the thread is interrupted externally
+
+InterruptedException
+
+public boolean isDeamon();	//System.gc();   best example:garbage collector
+
+public void setDeamon(boolean bool);	//t1.setDeamon(true); only if to make true.by default false only
+
+ public void sleep(long int ms);
+public void sleep(long int ms,long int ns);
+
+	t1.sleep(2000);
+	t1.sleep(200,200);
+
+public void join();
+
+public void yield();
+
+public void synchronize();
+
+Thread class cannot add/override the own functionalities of the users
+Runnable interface permits.
+
+yield method will make the current thread  to wait till other threads completes the task.
+
+join method will make the other threads to wait till the current thread completes the task.
+
+Synchronzation:
+
+It can be applied at method level and block level.
+
+Predicate:
+A predicate is a function with a single argument and returns boolean value.
+It has only one method called Test method.It takes any valid data type.
+
+Predicate joining:
+1.and()
+2.or()
+3.negate()
+
+p1---->returns true if the number is greater than 20
+p2---->returns true if the number is even
+
+Function:
+
+Functional interface contains only one method i.e..apply()
+
+Consumer:
+It takes data and returns nothing
+method-accept()
+
+Supplier:
+It won't take any input ,but will always supply the output.
+
+interface Predicate{
+	public boolean test(T);
+}
+
+interface Function{
+	public R apply(T);
+}
+
+interface Consumer{
+	public void accept(T);
+}
+
+interface Supplier{
+	public T get();
+}
+
+
+Predicate<String>--->return type boolean
+
+Function<String,Integer>-->return type is any datatype
+
+Consumer<Integer>-->returns void
+
+Supplier<Integer>-->refers to return type
+
+Collections:
+------------
+It is representing  group of objects as a single entity.
+
+1.Collections are dynamic.
+
+2.Implemented based on a strict data structure. 
+
+3.Predefined methods available for manipulation of data.
+
+Collection Framework:
+---------------------
+classes and interfaces which are used to represent group of objects into a single entity and the methods to operate on it.
+
+Collection(Interface):
+			Collection
+ 
+										                                 MAP(NOT DIRECTLY LINKED TO COLLECTION)
+	LIST			                             SET			     QUEUE		HashMap
+	 ----ArrayList						--HashSet						-->LinkedHashMap
+        -----LinkedList						    -->LinkedHashSet			         SortedMap
+							       --SortedSet			                       -->TreeMap
+         ------Vector 	- LIFO order	|Legacy classes		      -->TreeSet
+	-----Stack                      |
+
+METHODS IN COLLECTION INTERFACE:
+--------------------------------
+public boolean add(Object);
+
+public boolean addAll(Collection obj);--group of elements
+
+public boolean remove(Object element);
+
+public boolean removeAll(Collection c);
+
+public boolean retainAll(Collection c);
+
+public int size(); //total available elements in the collection
+
+public void clear();//all the elements from the collection
+
+public void contains(Object obj);//check the given element is in the group
+
+public void containsAll(Collection c);//all the given elements are checked
+
+public Iterator iterator();
+
+public object[] toArray();
+
+public Boolean isEmpty(); //checks the collection is empty or not
+
+public Boolean equals(Object obj); //compare two objects
+
+public int hashCode();  //return the hash code of objects
+
+
+LIST(INTERFACE):
+----------------
+List is a collection objects,which will arrange the elements in the linear fashion.
+
+It will maintains the insertion order.
+
+It will allow duplicates.
+
+It will allow null values.
+
+Any element may be accessed with its index.
+
+categories:
+----------
+LIST
+----ArrayList
+-----LinkedList
+------Vector 	- LIFO order	|Legacy classes
+	-----Stack              |
+
+Collections Class Methods:
+--------------------------
+1.sort()--->used  to sort the collection object into sorted order.
+
+syntax:Collections.sort(element);
+
+2.reverse()-->used to reverse the natural ordering
+
+Collections.reverse(element);
+
+3.copy()-->used to copy one list to another
+Collections.copy(destlist,srclist);
+
+4.checkedCollection()-->used to check whether all elements are of given type only
+Collections.checkedCollection(ListObject,typeofclass);
+
+5.disjoint()-->
+
+Methods in Vector:
+-----------------
+
+Vector v=new Vector();
+
+1.addElement()-->It is used to append the specified component at the end of  the vector
+
+	v.addElement("JAVA");
+
+2.elementAt()-It is used to get the component at the specified index
+		v.elementAt(6);
+
+3.insertElementAt()-->It is used to insert the specified object as a component in the given vector at the specified index.
+
+4.removeElement()-->remove element at first position.
+
+5.removeElementAt(5)-->removes at desired position.
+
+SET(INTERFACE):
+---------------
+
+1.It will not allow duplicates.
+
+2.It will not retain insertion order.
+
+3.Null value is allowed only once
+
+4.Linearity is not maintained
+-->Elements in Treeset are displayed in sorted manner.
+
+
+(Bi) Functional Interfaces:
+---------------------------
+
+1.BiPredicate-->It takes two input arguments.
+
+2.BiFunction-->"    "
+
+3.BiConsumer-->""
+
+Queue:	FIFO
+------
+						Queue
+			DeQueue							PriorityQueue
+
+DeQueue:
+--------
+Inset and delete operations can be performed on both ends.
+
+PriorityQueue:
+---------------
+Insert-rear end
+Delete-front end.The element to be eleminated has to be prioritised element.
+MAX_PRIORITY-->It will sort in Descending order and then element is removed.
+MIN_PRIORITY-->Ascending order
+
+MAP:
+----
+1.Map is not a sub child to collection interface
+
+2.Map is a 2D object.
+
+3.Map represents the data in the form of (key,value) pair
+
+4.Map can hold the references of other collection objects
+
+5.each key,value pai in map is called entry.
+
+6.Map is a collection of entries.
+
+Stream:
+
+1.filter()
+
+2.map()
+
+An array is converted to stream first.it is done by using.stream()
+
+Collectors Class:
+------------------
+They group the stream objects and make them as one.
+1.Collectors.toList();
+
+2.Collectors.toSet();
+
+3.Collectors.averagingDouble();
+
+4.Collectors.summingInt();
+
+5.Collectors.counting();
+
+//write a java program to find the min of averages of any two products
+
+Search Methods:(In Stream Interface)
+---------------
+.findFirst()
+
+.allMatch()
+
+.noneMatch()
+
+Optional class is a class which will return anything that is returned by search.
+-->isPresent()
+
+I/O Streams:
+------------
+The prime implementation in java is streams.
+inputstream-to read data from a source
+
+outputstream-to write data to a destination
+
+BufferedStream:
+
+It can read a line of characters.
+
+Serialization:
+--------------
+
+Its is the process of saving the state of the object.
+
+Java Database Connectivity:It is a driver or an interface
+-------------------------
+It is used  to connect data from business logic(java) to any database.
+-->Database independent API.
+Type1 Driver:(JDBC-ODBC Bridge)--Java program-->JDBC-->ODBC-->Database
+Type2 Driver:(JDBC-Native API)--Java program-->JDBC-->API-->Database
+Type3 Driver:Pin Driver
+Type4 Driver:Pure Java --Java Program-->JDBC-->Database
+
+Steps to connect to databases:
+-----------------------------
+1.Load the drivers.
+//using Class.forName();
+//DriverManager.registerDriver("drivername");
+
+2.Establish the connection
+	DriverManager.getConnection(url,uid,pwd);
+
+3.Create the statement object--It transfers and executes the query
+	Statement statement=Connection.createStatement();
+
+4.Write the query and execute the query
+	ResultSet resultset=statement.executeQuery(query);
+
+5.Process the data(ResultSet)
+	//process the data as per business logic
+
+6.Close the connection
+	connection.close();
+	statement.close();
+	resultset.close();
+
+
+The most important API's are:
+1.Connection(I)---->to establish the connection
+
+2.DriverManager(c)--->To load the drivers
+
+3.Statement(I)--->To transfer the query and execute
+
+4.ResultSet(I)--->To store the table executed query results
+
+5.PreparedStatement   ---->used to execute the dynamic queries/precompiled queries
+String query="insert into emp values(?,?,?)";
+PreparedStatement pst=connection.prepareStatement(query);
+pst.setInt(1,101);
+pst.setString(2,"Praveen");
+pst.setString(3,"CSE');
+
+pst.executeUpdate();
+
+6.CallableStatement    --->to execute the stored procedures at the database
+ Methods			Returns						Used for
+--------			-------						-------
+executeQuery(sqlString)   ResultSet                			 Select statement
+
+executeUpdate(sqlString)  int(rows affected)       			 insert,update,delete.DML
+
+execute(sqlString)      boolean(true if there was a ResultSet)		any SQL COMMAND or commands
+
+Batch Processing:
+-----------------
+It is a process of executing  queries batchwise
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

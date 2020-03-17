@@ -1,0 +1,266 @@
+J2SE,J2EE,J2ME.
+
+									J2EE	
+	JDBC								SERVLETS					JSP
+          --In order to connect servlets and DB				  --for request processings			   ---to prepare presentations/Views(UI).
+
+web related terminologies:
+
+1.WWW:Interconnectivity of systems for data sharing.
+
+2.Website:It is a component to display data in the www.
+Two types:
+1.Static:It wont allow end users to interact and doesnt allow users to manage the content in a website.(html)
+2.Dynamic:It allows(Servlets)
+
+3.Http:For communication in www ,protocol is used.
+Http request:the request sent from one system to another .
+
+4.Container:It is a component in the server,which provides an environment for the server side components to execute.
+
+5.Web server/Application server:
+Server is a program which accepts request from net,processes it and sends it back.
+Web:It works only for http requests.It can host any kind of application programs.
+Application:Works with any protocol but specific to a technology.
+
+6.URL:In order to connect to a webage,an adress has to be provided.
+pattern:protocol://ipaddress:portno/application name/page name
+
+7.Port:It is a component of URL.It identifies the application inside a physical machine.
+
+8.GET vs POST:(methods to transfer the data from client to server)
+get()-It appends the data directly to the url and sends to the server.
+post()-It encrypts the data and adds to the url for sending to server.
+
+Servlet:
+---------
+Server side java technology component and creates dynamic webpages.
+javax.servlet.*;
+javax.servlet.http.*;
+
+Create Servlet by:
+Servlet(I)
+ |
+GenericServlet(C)
+ |
+HttpServlet(C)
+
+Phases:
+1.init--initial phase.when init is called,servlet is initialised.public void init();
+
+2.service-any no.of times of execution(actual task of the servlet(processing logic)).public void service(ServletRequest,ServletResponse) throws ServletException,IOException;
+
+3.destroy-->when destroy() is called,servlet is destroyed.public void destroy();
+
+public ServletConfig getServletConfig();
+
+public String getServletInfo();
+
+HttpServlet:
+-----------
+public void doGet(HttpServlet request,HttpServlet response) throws ServletException,IOException;
+For processing:
+public void doPost(---,---)---;
+public void doHead(---,---)----;
+
+public void doOptions(----------,---------)-------;
+public void doDelete(-----,----)---------;
+
+Server Chaining:Transfer the control from one servlet to another servlet
+---------------
+RequestDispatcher--to implement servlet chaining
+include()-include responses
+forward()-forward responses
+
+Session:It is a set of transactions which maintain the state.
+Session Handling:
+1.Cookies-->a small piece of information that is persisted between the multiple client requests
+2.HttpSession
+3.url rewriting
+4.hidden fields.
+
+JSP:Phases:
+1.translation
+2.compilation
+3.execution
+
+						tags
+Scripting elements				Directives					ActionTags
+--Scriplets					   --page							
+--Expressions					   --include
+--Declarations					   --taglib
+
+Syntax of JSP tag:<%jsptag%>
+
+Expression tag:evaluate the expressions.
+syntax:<% = %>
+
+Directives:
+To provide additional information at the time of compilation.
+syntax:<%@  %>
+
+Implicit objects:
+1.out
+2.request
+3.response
+4.application-represent scope of the data availability(same for page&session also)
+5.config
+6.pageContext
+7.page
+8.session
+9.exception
+
+Bean:
+private variables and parameterised constructor with getter and setter methods.
+useBean:retrieve data and assign it in the form of a bean object.
+
+JSTL:(Java Standard Tag Library)
+----------------------------------
+It defines abstract level of java programming code.
+Represents a set of tags to simplify the jsp development.
+
+
+Tags in sql:
+----------
+1.sql:setDataSource
+2.sql:query--select command
+3.sql:update--DML commands
+4.sql:param--dynamically values can be updated
+5.sql:dateParam---any form of date
+6.sql:transaction--set of operations
+
+MVC:(model-view-controller)
+It is a kind of model architecture.
+Model<----->Controller<----->View
+Model-beans
+controller-servlet
+view-jsp
+
+Model-It is responsible for maintaining application data and business logic.
+View-Is a user interface of the application,which displays the data.
+Controller-handles the users requests and renders appropriate view with model data.
+
+MAVEN:
+--------
+Maven is a integrated versioning,built and common structure maintaining tool.
+By using maven,when we create a project the following problems can be reduced.:
+				HOW IT OVERCOMES
+1.sharing & versioning----We have to make use of plugins like repositories.
+2.jars version---Any external related files are in pom.xml file.XML file consists of jar file name and version.
+3.structure of project---It has a predefined project structure.
+4.build files.--By using UI 
+--->LOCAL MACHINE---BUILD PATH
+-->SERVER SIDE-DEPLOYMENT ASSEMBLY
+5.Any kind of java programs can run
+
+Phases:
+--------
+Clean--->code will be cleared
+default-->compiles .class files
+Build-->creates a complete jar file
+
+Framework:IT IS A PREDEFINED FLOW OF CONSTRUCTING AN APPLICATION.
+
+Hibernate:It is a database connectivity framework.
+Spring-->Java based application development framework.To develop enterprise level applications.It focuses on speed,productivity,simplicity.
+Modules:
+--------
+Test,Core container,AOP,aspects,Message,Instrument,web,Data Access.
+------
+Advantages:
+----------
+1.It is a POJO based
+2.Modular.--It can be built with 
+3.It can be integrated with already built frameworks.
+4.It is testable
+5.It supports MVC,Exception Handling.It is light weight
+6.It has IOC,DI.
+7.Transaction Management.
+8.Aspect Oriented Programming.
+
+
+Enterprise Java Bean(EJB):
+--------------------------
+--Heavy Weight
+--Tightly coupled
+--Direct Control.
+Dependency Management:
+---------------------
+1.Direct Injection:
+2.Inversion of Control:(implemented by Dependency Injection)
+
+Bean Properties:
+-------------
+id
+class
+scope
+constructor-arg
+properties
+autowire  mode
+lazy-init mode
+init-method
+destroy-method
+
+Components of spring program:
+----------------------------
+1.Bean class (pojo) represents data
+
+2.XML configuration file
+
+3.MAIN CLASS
+
+AutoWiring:
+----------
+This enables to inject the object dependency implicitly.It internally uses setter or constructor injection.
+It cant be used to inject primitive and string values.
+
+Strereotype Annotation:
+--------------------------
+
+When ever the IOC container scans the @component classes,it will create a bean instance with same name as that of class name in the lower camelcase
+
+i.e..,if the class name is TennisCoach the bean name is tennisCoach
+
+
+we can explicitly pass the bean name through the @Component("beanname") 
+
+when we pass the bean name explicitly,in getting the context,the same name should be referred.
+
+i.e..,context.getBean("beanname",JavaFile.class);
+
+Spring jdbc:
+------------
+Spring framework provides following approaches for jdbc database access:
+
+1.JdbcTemplate
+2.NamedParameterJdbcTemplate
+3.SimpleJdbcTemplate
+4.SimpleJdbcInsert and SimpleJdbcCall
+
+First step is by Writing the applicationcontext file by injecting jdbc template class properties.
+
+Regular Expressions:
+------------------------
+Pattern class:
+------------
+It is the compiled version of a regular expression.
+It is used to define a pattern for the regular expression engine.
+
+.		-		Matches any character
+^regex		-		Finds regex that must match at the beginning of the line
+regex$		-		end with that word
+[abc]		-		can match a or b or c
+[abc][vz]			can match a or b or c followed by either v or z
+[^abc]		-		negates the pattern.It matches any character except a or b or c.
+[a-d1-7]	-		between a - d and 1-7
+---------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
